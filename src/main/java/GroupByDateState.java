@@ -1,11 +1,3 @@
-
-import java.io.IOException;
-import java.time.Instant;
-import java.util.Arrays;
-import java.util.logging.FileHandler;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.DoubleWritable;
@@ -19,10 +11,17 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
-public class GroupBy {
+import java.io.IOException;
+import java.time.Instant;
+import java.util.Arrays;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
+public class GroupByDateState {
 	private static final String INPUT_PATH = "input-groupBy/";
 	private static final String OUTPUT_PATH = "output/groupBy-";
-	private static final Logger LOG = Logger.getLogger(GroupBy.class.getName());
+	private static final Logger LOG = Logger.getLogger(GroupByDateState.class.getName());
 
 	static {
 		System.setProperty("java.util.logging.SimpleFormatter.format", "%5$s%n%6$s");
@@ -53,10 +52,11 @@ public class GroupBy {
                 return;
             }
 
-            String customerID = words[5];
+            String DateState = words[10] + "-" + words[2];
             double profit =  Double.parseDouble(words[20]);
 
-            context.write(new Text(customerID), new DoubleWritable(profit));
+
+            context.write(new Text(DateState), new DoubleWritable(profit));
 		}
 	}
 
