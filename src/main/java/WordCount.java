@@ -73,12 +73,22 @@ public class WordCount {
 
 		public void reduce(Text key, Iterable<IntWritable> values, Context context)
 				throws IOException, InterruptedException {
-			int sum = 0;
+            //Filtrage mot et lenght
+            String toFilter = key.toString();
+            toFilter = toFilter.toLowerCase();
+            toFilter = toFilter.replaceAll("[.,!?]", "");
+            int keylen = toFilter.length();
 
+
+            //Count du nb de mots
+            int sum = 0;
 			for (IntWritable val : values)
 				sum += val.get();
 
-			context.write(key, new IntWritable(sum));
+            //Filtre compte et ajout
+            if (sum >= 10 && keylen > 4) {
+                context.write(new Text(toFilter), new IntWritable(sum));
+            }
 		}
 	}
 

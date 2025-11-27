@@ -1,0 +1,115 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@argfile
+-classpath
+'/home/e20230001494/.m2/repository/commons-configuration/commons-configuration/1.6/commons-configuration-1.6.jar:/home/e20230001494/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/home/e20230001494/.m2/repository/commons-digester/commons-digester/1.8/commons-digester-1.8.jar:/home/e20230001494/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar:/home/e20230001494/.m2/repository/commons-beanutils/commons-beanutils-core/1.8.0/commons-beanutils-core-1.8.0.jar:/home/e20230001494/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/home/e20230001494/.m2/repository/commons-codec/commons-codec/1.2/commons-codec-1.2.jar:/home/e20230001494/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/home/e20230001494/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/home/e20230001494/.m2/repository/org/apache/hadoop/hadoop-core/1.2.1/hadoop-core-1.2.1.jar:/home/e20230001494/.m2/repository/commons-cli/commons-cli/1.2/commons-cli-1.2.jar:/home/e20230001494/.m2/repository/xmlenc/xmlenc/0.52/xmlenc-0.52.jar:/home/e20230001494/.m2/repository/com/sun/jersey/jersey-core/1.8/jersey-core-1.8.jar:/home/e20230001494/.m2/repository/com/sun/jersey/jersey-json/1.8/jersey-json-1.8.jar:/home/e20230001494/.m2/repository/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar:/home/e20230001494/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/home/e20230001494/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb-impl-2.2.3-1.jar:/home/e20230001494/.m2/repository/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar:/home/e20230001494/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/home/e20230001494/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/e20230001494/.m2/repository/org/codehaus/jackson/jackson-jaxrs/1.7.1/jackson-jaxrs-1.7.1.jar:/home/e20230001494/.m2/repository/org/codehaus/jackson/jackson-xc/1.7.1/jackson-xc-1.7.1.jar:/home/e20230001494/.m2/repository/com/sun/jersey/jersey-server/1.8/jersey-server-1.8.jar:/home/e20230001494/.m2/repository/asm/asm/3.1/asm-3.1.jar:/home/e20230001494/.m2/repository/commons-io/commons-io/2.1/commons-io-2.1.jar:/home/e20230001494/.m2/repository/org/apache/commons/commons-math/2.1/commons-math-2.1.jar:/home/e20230001494/.m2/repository/commons-net/commons-net/1.4.1/commons-net-1.4.1.jar:/home/e20230001494/.m2/repository/org/mortbay/jetty/jetty/6.1.26/jetty-6.1.26.jar:/home/e20230001494/.m2/repository/org/mortbay/jetty/servlet-api/2.5-20081211/servlet-api-2.5-20081211.jar:/home/e20230001494/.m2/repository/org/mortbay/jetty/jetty-util/6.1.26/jetty-util-6.1.26.jar:/home/e20230001494/.m2/repository/tomcat/jasper-runtime/5.5.12/jasper-runtime-5.5.12.jar:/home/e20230001494/.m2/repository/tomcat/jasper-compiler/5.5.12/jasper-compiler-5.5.12.jar:/home/e20230001494/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar:/home/e20230001494/.m2/repository/org/mortbay/jetty/servlet-api-2.5/6.1.14/servlet-api-2.5-6.1.14.jar:/home/e20230001494/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar:/home/e20230001494/.m2/repository/ant/ant/1.6.5/ant-1.6.5.jar:/home/e20230001494/.m2/repository/commons-el/commons-el/1.0/commons-el-1.0.jar:/home/e20230001494/.m2/repository/net/java/dev/jets3t/jets3t/0.6.1/jets3t-0.6.1.jar:/home/e20230001494/.m2/repository/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.jar:/home/e20230001494/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/home/e20230001494/.m2/repository/org/eclipse/jdt/core/3.1.1/core-3.1.1.jar:/home/e20230001494/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar:/home/e20230001494/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar'
+-encoding
+'UTF-8'
+-protected
+--release
+11
+-sourcepath
+'/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/src/main/java:/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Hadoop WordCount Project 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Hadoop WordCount Project 1.0-SNAPSHOT API'
+'/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/src/main/java/GroupBy.java'
+'/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/src/main/java/TopkWordCount.java'
+'/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/src/main/java/TriAvecComparaison.java'
+'/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/src/main/java/WordCount.java'
+/home/e20230001494/.m2/repository/commons-configuration/commons-configuration/1.6/commons-configuration-1.6.jar = 1233776684000
+/home/e20230001494/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar = 1208221697000
+/home/e20230001494/.m2/repository/commons-digester/commons-digester/1.8/commons-digester-1.8.jar = 1165170791000
+/home/e20230001494/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar = 1132682927000
+/home/e20230001494/.m2/repository/commons-beanutils/commons-beanutils-core/1.8.0/commons-beanutils-core-1.8.0.jar = 1219940352000
+/home/e20230001494/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar = 1187703847000
+/home/e20230001494/.m2/repository/commons-codec/commons-codec/1.2/commons-codec-1.2.jar = 1132682928000
+/home/e20230001494/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar = 1295216507000
+/home/e20230001494/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar = 1368734721000
+/home/e20230001494/.m2/repository/org/apache/hadoop/hadoop-core/1.2.1/hadoop-core-1.2.1.jar = 1374698508000
+/home/e20230001494/.m2/repository/commons-cli/commons-cli/1.2/commons-cli-1.2.jar = 1237493315000
+/home/e20230001494/.m2/repository/xmlenc/xmlenc/0.52/xmlenc-0.52.jar = 1164335084000
+/home/e20230001494/.m2/repository/com/sun/jersey/jersey-core/1.8/jersey-core-1.8.jar = 1308918836000
+/home/e20230001494/.m2/repository/com/sun/jersey/jersey-json/1.8/jersey-json-1.8.jar = 1308918893000
+/home/e20230001494/.m2/repository/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar = 1240246240000
+/home/e20230001494/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar = 1142314290000
+/home/e20230001494/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb-impl-2.2.3-1.jar = 1295346714000
+/home/e20230001494/.m2/repository/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar = 1292211885000
+/home/e20230001494/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar = 1191225746000
+/home/e20230001494/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar = 1146612027000
+/home/e20230001494/.m2/repository/org/codehaus/jackson/jackson-jaxrs/1.7.1/jackson-jaxrs-1.7.1.jar = 1294893789000
+/home/e20230001494/.m2/repository/org/codehaus/jackson/jackson-xc/1.7.1/jackson-xc-1.7.1.jar = 1294893798000
+/home/e20230001494/.m2/repository/com/sun/jersey/jersey-server/1.8/jersey-server-1.8.jar = 1308918892000
+/home/e20230001494/.m2/repository/asm/asm/3.1/asm-3.1.jar = 1200825086000
+/home/e20230001494/.m2/repository/commons-io/commons-io/2.1/commons-io-2.1.jar = 1317677556000
+/home/e20230001494/.m2/repository/org/apache/commons/commons-math/2.1/commons-math-2.1.jar = 1269744481000
+/home/e20230001494/.m2/repository/commons-net/commons-net/1.4.1/commons-net-1.4.1.jar = 1135175009000
+/home/e20230001494/.m2/repository/org/mortbay/jetty/jetty/6.1.26/jetty-6.1.26.jar = 1289425253000
+/home/e20230001494/.m2/repository/org/mortbay/jetty/servlet-api/2.5-20081211/servlet-api-2.5-20081211.jar = 1229016832000
+/home/e20230001494/.m2/repository/org/mortbay/jetty/jetty-util/6.1.26/jetty-util-6.1.26.jar = 1289425089000
+/home/e20230001494/.m2/repository/tomcat/jasper-runtime/5.5.12/jasper-runtime-5.5.12.jar = 1135095632000
+/home/e20230001494/.m2/repository/tomcat/jasper-compiler/5.5.12/jasper-compiler-5.5.12.jar = 1135095632000
+/home/e20230001494/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar = 1226623799000
+/home/e20230001494/.m2/repository/org/mortbay/jetty/servlet-api-2.5/6.1.14/servlet-api-2.5-6.1.14.jar = 1226623743000
+/home/e20230001494/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar = 1226623827000
+/home/e20230001494/.m2/repository/ant/ant/1.6.5/ant-1.6.5.jar = 1132682799000
+/home/e20230001494/.m2/repository/commons-el/commons-el/1.0/commons-el-1.0.jar = 1132682961000
+/home/e20230001494/.m2/repository/net/java/dev/jets3t/jets3t/0.6.1/jets3t-0.6.1.jar = 1218361805000
+/home/e20230001494/.m2/repository/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.jar = 1242768027000
+/home/e20230001494/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar = 1132683798000
+/home/e20230001494/.m2/repository/org/eclipse/jdt/core/3.1.1/core-3.1.1.jar = 1128006256000
+/home/e20230001494/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar = 1373857649000
+/home/e20230001494/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar = 1373857669000
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/src/main/java/GroupBy.java = 1764254212460
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/src/main/java/TopkWordCount.java = 1764254212464
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/src/main/java/TriAvecComparaison.java = 1764254212468
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/src/main/java/WordCount.java = 1764254212472
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/src/main/java = 1764254212472
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/generated-sources/annotations = 1764254808418
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/GroupBy.html = 1764254811962
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/GroupBy.Map.html = 1764254811978
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/GroupBy.Reduce.html = 1764254811990
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/TopkWordCount.html = 1764254811998
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/TriAvecComparaison.html = 1764254812006
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/TriAvecComparaison.Map.html = 1764254812014
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/TriAvecComparaison.Reduce.html = 1764254812022
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/WordCount.html = 1764254812030
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/WordCount.Map.html = 1764254812046
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/WordCount.Reduce.html = 1764254812054
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/element-list = 1764254812058
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/package-summary.html = 1764254812066
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/package-tree.html = 1764254812070
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/package-use.html = 1764254812118
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/overview-tree.html = 1764254812122
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/allclasses-index.html = 1764254812130
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/allpackages-index.html = 1764254812134
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/module-search-index.js = 1764254812142
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/package-search-index.js = 1764254812142
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/type-search-index.js = 1764254812146
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/member-search-index.js = 1764254812146
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/tag-search-index.js = 1764254812150
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/index-all.html = 1764254812158
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/search.html = 1764254812162
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/index.html = 1764254812166
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/help-doc.html = 1764254812174
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/stylesheet.css = 1764254812178
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/script.js = 1764254812182
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/copy.svg = 1764254812186
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/link.svg = 1764254812190
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/search.js = 1764254812194
+/home/e20230001494/Documents/S7/HAI708_BDD/edbd/TP4_Hadoop-MapReduce/hadoop_v1.2/target/reports/apidocs/search-page.js = 1764254812198
