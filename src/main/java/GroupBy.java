@@ -1,6 +1,7 @@
 
 import java.io.IOException;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -36,10 +37,28 @@ public class GroupBy {
 	}
 
 	public static class Map extends Mapper<LongWritable, Text, Text, DoubleWritable> {
-
+        private final static String emptyWords[] = { "" };
+        private final static String attributes[] = {"Row ID","Order ID",
+                "Order Date","Ship Date","Ship Mode","Customer ID",
+                "Customer Name","Segment","Country","City","State",
+                "Postal Code","Region","Product ID","Category","Sub-Category",
+                "Product Name","Sales","Quantity","Discount","Profit"};
 		@Override
-		public void map(LongWritable key, Text value, Context context) {
-			// TODO: à compléter
+		public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+			String line = value.toString();
+            String[] words = line.split(",");
+
+
+            if (Arrays.equals(words, emptyWords) ||  Arrays.equals(words, attributes)) {
+                return;
+            }
+
+            String customerID = words[5];
+            double profit =  Double.parseDouble(words[20]);
+
+            LOG.info("Customer ID: " + customerID + " and profit : " + profit);
+
+            context.write(new Text(customerID), new DoubleWritable(profit));
 		}
 	}
 
@@ -48,7 +67,13 @@ public class GroupBy {
 		@Override
 		public void reduce(Text key, Iterable<DoubleWritable> values, Context context)
 				throws IOException, InterruptedException {
-			// TODO: à compléter
+
+            double total = 0;
+            for (DoubleWritable val : values) {
+                total += val.get();
+            }
+            context.write(key, new DoubleWritable(total));
+
 		}
 	}
 
