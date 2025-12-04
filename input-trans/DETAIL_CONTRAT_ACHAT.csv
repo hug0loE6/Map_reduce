@@ -1,0 +1,3 @@
+"ID_CONTRACT","LIBELLE","DESCRIPTION","MODE_FACTURATION","STATUT_ACTIF","FLEXIBILITE_CONTRAT"
+1,"Prix fixe 2025-2027","Contrat long terme ?? prix fixe de 2025 ?? 2027","Mensuelle",1,0
+2,"Day-ahead 23/11/2025","Contrat pour le 23 novembre.","Quotidienne",0,1

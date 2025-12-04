@@ -1,0 +1,4 @@
+ID_DATE,JOUR,JOUR_SEMAINE,MOIS,ANNEE,SAISON,TYPE_JOUR
+1,1,"mercredi",1,2025,"Hiver","Férié"
+2,31,"vendredi",12,2027,"Hiver","Ouvré"
+3,23,"dimanche",11,2025,"Automne","Week-end"

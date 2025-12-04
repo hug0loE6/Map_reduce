@@ -1,0 +1,3 @@
+ID_DISTRIBUTEUR,NOM,TYPE_DISTRIBUTEUR,CAPACITE,EMAIL,TYPE_TARIF,DATE_COLLABORATION,DATE_CREATION,REGION
+1,"Enedis","GRD",85000,"contact@enedis.fr","TURPE","2002-12-18","2002-12-18","National"
+2,"Électricité de Strasbourg","Locale",67000,"service@es.fr","Tarif local","2016-03-01","1899-12-14","Grand-Est"
