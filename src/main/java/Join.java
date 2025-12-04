@@ -1,6 +1,7 @@
 
 import java.io.IOException;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
@@ -82,44 +83,30 @@ public class Join {
 
             String res = "";
 
-            String val1 = "";
-            String val2 = "";
+            String cust = "";
+            ArrayList<String> comm = new ArrayList<>();
 
 
             for (Text val : values) {
-                if (i == 0) {
-                    val1 = val.toString();
-                    i++;
-                } else if (i == 1){
-                    val2 = val.toString();
-                    i++;
+                String strval = val.toString();
+                if (strval.contains("Cust")) {
+                    cust = strval;
+                }
+                else {
+                    comm.add(strval);
                 }
             }
 
-            //Check si y'a un couple
-            if (i < 2){
+            //Check s'il y a un couple possible (customer présent)
+            if (cust.isEmpty()){
                 return;
             }
 
-            //Check si c'est bien un couple customer-order
-            if(val1.contains("Cust")){
-                if(val2.contains("Cust")){
-                    return; // couple customer-customer
-                }
-            }
-            else if(!val2.contains("Cust")){
-                return; // couple order-order
-            } else { //inverse l'ordre des attributs pour le mettre correctement
-                String temp = val1;
-                val1 = val2;
-                val2 = temp;
-            }
-
-            //
-
-            res = "| "+val1 + " | " + val2+ " |";
             key = new Text("");
-            context.write(key, new Text(res));
+            for (String str : comm) {
+                res = "| " + cust + " | " + str + " |";
+                context.write(key, new Text(res));
+            }
 
         }
     }
