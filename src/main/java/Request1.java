@@ -23,8 +23,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 public class Request1 {
-    private static final String INPUT_PATH = "input-trans/";
-    private static final String OUTPUT_PATH = "output/trans1-";
+    private static final String INPUT_PATH = "input-snap/";
+    private static final String OUTPUT_PATH = "output/snap1-";
     private static final Logger LOG = Logger.getLogger(Join.class.getName());
 
     static {
@@ -32,17 +32,44 @@ public class Request1 {
 
         try {
             FileHandler fh = new FileHandler("out.log");
-            fh.setFormatter(new SimpleFormatter());
+            fh.setFormatter(new Ssrc/main/java/Request4.javaimpleFormatter());
             LOG.addHandler(fh);
         } catch (SecurityException | IOException e) {
             System.exit(1);
         }
     }
 
-    public static class Map extends Mapper<LongWritable, Text, Text, Text> {
+    public String profil(String type, String cadran){
+        if(type.equals("Résidentiel")){
+            if(cadran.equals("Base")){
+                return "RES1";
+            } else if (cadran.equals("HP/HC")){
+                return "RES2";
+            }
+        } else if (type.equals("Professionnel")){
+            if(cadran.equals("Base")){
+                return "PRO1";
+            } else if (cadran.equals("HP/HC")){
+                return "PRO2";
+            }
+        } else if (type.equals("Entreprise")){
+            if(cadran.equals("Base")){
+                return "ENT1";
+            } else if (cadran.equals("HP/HC")){
+                return "ENT2";
+            } else if (cadran.equals("HPH/HPE/HCH/HCE")){
+                return "ENT4";
+            }
+        }
+        return "ERR";
+    }
+
+    public static class Map1 extends Mapper<LongWritable, Text, Text, Text> {
         private final static String emptyWords[] = { "" };
-        private final static String headerAtt[] = {"ID_CONTRAT", "ID_PRODUCTEUR", "ID_DISTRIBUTEUR", "ID_DATE_DEBUT",
-                "ID_DATE_FIN", "PRIX_UNITAIRE", "VOLUME_PREVUE", "MONTANT_CONTRAT" , "DATE_SIGNATURE" };
+        private final static String headerAttConso[] = {"ID_CONTRACT","ID_CONF","ID_CLIENT","ID_DATE","MONTANT_FACTURÉ",
+                "CONSOMMATION","CONSOMMATION_CUMULÉE","JOURS_AVANT_FIN_CONTRAT"};
+        private final static String headerAttConf[] = {"ID_CONF","POINT_DE_LIVRAISON","TYPE_DE_PROFIL","CADRANS",
+                "DATE_DÉBUT_CONFIGURATION","DATE_FIN_CONFIGURATION","PUISSANCE_SOUSCRITE","ADRESSE"};
 
         private String fileName;
 
@@ -54,10 +81,6 @@ public class Request1 {
 
         @Override
         public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-            
-            if(!fileName.equals("CONTRAT_ACHAT.csv")){
-                return;
-            }
 
             String line = value.toString();
             String[] words = line.split(",");
@@ -65,50 +88,128 @@ public class Request1 {
             String writekey = "";
             String elem = "";
 
-            if (Arrays.equals(words, emptyWords) || Arrays.equals(words, headerAtt)) {
+            if (Arrays.equals(words, emptyWords) || Arrays.equals(words, headerAttConf) || Arrays.equals(words, headerAttConso)) {
                 return;
             }
 
-            String[] datesplit = words[8].split("-");
-            writekey = datesplit[0];
-
-            context.write(new Text(writekey), new Text(elem));
+            if (fileName.equals("CONSO_REEL.csv")) {
+                writekey = words[1]; 
+                elem = "A|" + words[5]; 
+                context.write(new Text(writekey), new Text(elem));
+            } else if (fileName.equals("CONFIGURATION_TECHNIQUE.csv")) {
+                writekey = words[0];
+                elem = "P|" + profil(words[2], words[3]);
+                context.write(new Text(writekey), new Text(elem)); 
+            }
         }
     }
 
-    public static class Reduce extends Reducer<Text, Text, Text, IntWritable> {
+    public static class Reduce1 extends Reducer<Text, Text, Text, Text> {
 
         @Override
         public void reduce(Text key, Iterable<Text> values, Context context)
                 throws IOException, InterruptedException {
-
-            int count = 0;
+            
+            String prod = "";
+            boolean foundProd = false;
+            for (Text val : values) {
+                String[] parts = val.toString().split("[|]");
+                if (parts[0].equals("P")) {
+                    prod = parts[1];
+                    foundProd = true;
+                } 
+            }
+            if (!foundProd) {
+                return;
+            }
 
             for (Text val : values) {
-                count++;
+                String[] parts = val.toString().split("[|]");
+                if (parts[0].equals("A")){
+                    String res = parts[1] + "," + prod;
+                    context.write(new Text(""), new Text(res));
+                }
             }
-            context.write(key, new IntWritable(count));
 
+        }
+    }
+
+
+    public static class Map2 extends Mapper<LongWritable, Text, Text, IntWritable> {
+        //Conso,Profil
+        private final static String emptyWords[] = { "" };
+        @Override
+        public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+
+            String line = value.toString().trim();
+            String[] words = line.split(",");
+
+            String writekey = "";
+            String elem = "";
+
+            if (Arrays.equals(words, emptyWords)) {
+                return;
+            } else if (words[1].equals("ERR")){
+                return;
+           }
+
+            writekey = words[1];
+            elem = words[0];    
+
+            context.write(new Text(writekey), new IntWritable(Integer.parseInt(elem)));
+        }
+    }
+
+    public static class Reduce2 extends Reducer<Text, IntWritable, Text, IntWritable> {
+
+        @Override
+        public void reduce(Text key, Iterable<IntWritable> values, Context context)
+                throws IOException, InterruptedException {
+            
+            int totalConso = 0;
+            for (IntWritable val : values) {
+                totalConso += val.get();
+            }
+            context.write(key, new IntWritable(totalConso));
         }
     }
 
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
 
-        Job job = new Job(conf, "Req1");
+        Job job1 = new Job(conf, "join");
 
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        job1.setOutputKeyClass(Text.class);
+        job1.setOutputValueClass(Text.class);
 
-        job.setMapperClass(Map.class);
-        job.setReducerClass(Reduce.class);
+        job1.setMapperClass(Map1.class);
+        job1.setReducerClass(Reduce1.class);
 
-        job.setInputFormatClass(TextInputFormat.class);
-        job.setOutputFormatClass(TextOutputFormat.class);
+        job1.setInputFormatClass(TextInputFormat.class);
+        job1.setOutputFormatClass(TextOutputFormat.class);
 
-        FileInputFormat.addInputPath(job, new Path(INPUT_PATH));
-        FileOutputFormat.setOutputPath(job, new Path(OUTPUT_PATH + Instant.now().getEpochSecond()));
+        FileInputFormat.addInputPath(job1, new Path(INPUT_PATH));
+        FileOutputFormat.setOutputPath(job1, new Path(OUTPUT_PATH + "-job1"));
 
-        job.waitForCompletion(true);
+        job1.waitForCompletion(true);
+
+        Job job2 = new Job(conf, "Req1");
+
+        job2.setOutputKeyClass(Text.class);
+        job2.setOutputValueClass(IntWritable.class);
+
+        job2.setMapperClass(Map2.class);
+        job2.setReducerClass(Reduce2.class);
+
+        job2.setInputFormatClass(TextInputFormat.class);
+        job2.setOutputFormatClass(TextOutputFormat.class);
+
+        FileInputFormat.addInputPath(job2, new Path(OUTPUT_PATH + "-job1"));
+        FileOutputFormat.setOutputPath(job2, new Path(OUTPUT_PATH + Instant.now().getEpochSecond()));
+
+        job2.waitForCompletion(true);
+
+        FileSystem fs = FileSystem.get(conf);
+        fs.delete(new Path(OUTPUT_PATH + "-job1"), true);
     }
 }
