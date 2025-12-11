@@ -11,6 +11,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -53,6 +54,11 @@ public class Request1 {
 
         @Override
         public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+            
+            if(!fileName.equals("CONTRAT_ACHAT.csv")){
+                return;
+            }
+
             String line = value.toString();
             String[] words = line.split(",");
 
