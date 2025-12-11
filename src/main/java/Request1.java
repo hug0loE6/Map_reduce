@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.LongWritable;
@@ -32,14 +33,14 @@ public class Request1 {
 
         try {
             FileHandler fh = new FileHandler("out.log");
-            fh.setFormatter(new Ssrc/main/java/Request4.javaimpleFormatter());
+            fh.setFormatter(new SimpleFormatter());
             LOG.addHandler(fh);
         } catch (SecurityException | IOException e) {
             System.exit(1);
         }
     }
 
-    public String profil(String type, String cadran){
+    public static String profil(String type, String cadran){
         if(type.equals("Résidentiel")){
             if(cadran.equals("Base")){
                 return "RES1";

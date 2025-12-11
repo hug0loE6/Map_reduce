@@ -27,7 +27,7 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
-public class Request2 {
+public class Request5 {
     private static final String INPUT_PATH = "input-trans/";
     private static final String OUTPUT_PATH = "output/trans5-";
     private static final Logger LOG = Logger.getLogger(Join.class.getName());

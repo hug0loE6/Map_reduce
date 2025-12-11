@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.LongWritable;
@@ -32,7 +33,7 @@ public class Request2 {
 
         try {
             FileHandler fh = new FileHandler("out.log");
-            fh.setFormatter(new Ssrc/main/java/Request4.javaimpleFormatter());
+            fh.setFormatter(new SimpleFormatter());
             LOG.addHandler(fh);
         } catch (SecurityException | IOException e) {
             System.exit(1);
@@ -141,11 +142,11 @@ public class Request2 {
             int count = 0;
             
             for (LongWritable val : values) {
-                totalConso += val.get();
+                totalMont += val.get();
                 count++;
             }
             long avg = totalMont / count;
-            context.write(key, new IntWritable(avg));
+            context.write(key, new LongWritable(avg));
         }
     }
 
